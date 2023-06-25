@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <BlogDetails />
+    <ShopMain />
   </div>
 </template>
 
 <script>
-import BlogDetails from './components/BlogDetails.vue';
+
+import ShopMain from './components/ShopMain.vue';
 
 
 export default {
   name: 'App',
   components: {
-    BlogDetails,
-  
+    ShopMain
   }
 }
 </script>
