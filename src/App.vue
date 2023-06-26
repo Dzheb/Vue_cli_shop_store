@@ -5,16 +5,14 @@
 </template>
 
 <script>
-
 import ShopMain from './components/ShopMain.vue';
-
 
 export default {
   name: 'App',
   components: {
-    ShopMain
-  }
-}
+    ShopMain,
+  },
+};
 </script>
 
 <style>

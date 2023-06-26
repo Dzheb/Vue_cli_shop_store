@@ -1,92 +1,83 @@
 <template>
-  <div class="main__block center">
-    <header class="header">
-      <div class="header__left">
-        <img src="../assets/img/Logo.svg" alt="Logo" />
-        <h3>Interno</h3>
+  <div class="blog__details">
+    <div class="main__block center transparent">
+      <div class="starter">
+        <img
+          class="starter__blog__img"
+          src="../assets/img/Blog_details_promo.svg"
+          alt="Logo"
+        />
       </div>
-      <nav class="header__right">
-        <a @click="currentPage = page" v-for="page in pages" :key="page.id">
-          {{ page }}
-        </a>
-      </nav>
-    </header>
-    <!-- <ShopHome/> -->
-    <component :is="changePage"></component>
-    <footer class="footer">
-      <div class="footer__logo__block">
-        <div class="footer__logo">
-          <img src="../assets/img/Logo.svg" alt="Logo" />
-          <h3>Interno</h3>
+      <!--  -->
+      <div class="blog__details">
+        <div class="blog__details__main">
+          <!-- components -->
+          <component :is="changeTab"></component>
         </div>
-        <p class="footer__logo__text">
-          It is a long established fact that a reader will be distracted
-          lookings.
-        </p>
-        <div class="footer__logo__twitter">
-          <a href="">
-            <img src="../assets/img/twitter.svg" alt="Logo" />
-          </a>
-          <a href="">
-            <img src="../assets/img/in.svg" alt="Logo" />
-          </a>
+        <div class="tags">
+          <p class="tags__heading">Tags</p>
+          <button
+            class="tag"
+            @click="currentTab = btn"
+            v-for="btn in nameBtns"
+            :key="btn.id"
+          >
+            {{ btn }}
+          </button>
         </div>
       </div>
-      <div class="footer__pages">
-        <h3>Pages</h3>
-        <nav class="footer__pages__menu">
-          <a @click="currentPage = page" v-for="page in pages" :key="page.id">
-            {{ page }}
-          </a>
-        </nav>
-      </div>
-      <div class="footer__contact">
-        <h3>Contacts</h3>
-        <p class="address">55 East Birchwood Ave. Brooklyn, New York 11201</p>
-        <p class="email">contact@interno.com</p>
-        <p class="tel">(123) 456 - 7890</p>
-      </div>
-    </footer>
+      <!--  -->
+    </div>
   </div>
 </template>
 
 <script>
-import ShopHome from '../components/ShopHome.vue';
-import ShopBlog from '../components/ShopBlog.vue';
-import ShopBlogDetails from '../components/ShopBlogDetails.vue';
-export default {
-  name: 'ShopMain',
+import ShopKitchen from '../components/ShopKitchen.vue';
+import ShopBedroom from '../components/ShopBedroom.vue';
+import ShopBuilding from '../components/ShopBuilding.vue';
+import ShopArchitecture from '../components/ShopArchitecture.vue';
+import ShopKitchen_planning from '../components/ShopKitchenPlanning.vue';
 
+export default {
+  name: 'ShopBlogDetails',
   components: {
-    ShopHome,
-    ShopBlog,
-    ShopBlogDetails
+    ShopKitchen,
+    ShopBedroom,
+    ShopBuilding,
+    ShopArchitecture,
+    ShopKitchen_planning,
   },
   data() {
     return {
-      pages: ['Home', 'Project', 'Blog'],
-      currentPage: 'Home',
+      nameBtns: [
+        'Kitchen',
+        'Bedroom',
+        'Building',
+        'Architecture',
+        'Kitchen planning',
+      ],
+      currentTab: 'Kitchen',
     };
   },
   computed: {
-    changePage() {
-      return `Shop${this.currentPage}`;
+    changeTab() {
+      return `Shop${this.currentTab.replace(' ', '_')}`;
     },
   },
-
-  methods: {},
 };
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
   width: 1600px;
   font-family: 'Lato', sans-serif;
 }
+
 .main__block {
   display: flex;
   flex-direction: column;
@@ -108,7 +99,6 @@ img {
 a {
   text-decoration: none;
   color: rgba(77, 80, 83, 1);
-  cursor: pointer;
 }
 
 .center {

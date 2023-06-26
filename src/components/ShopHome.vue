@@ -1,80 +1,303 @@
 <template>
-  <div class="main__block center">
-    <header class="header">
-      <div class="header__left">
-        <img src="../assets/img/Logo.svg" alt="Logo" />
-        <h3>Interno</h3>
-      </div>
-      <nav class="header__right">
-        <a @click="currentPage = page" v-for="page in pages" :key="page.id">
-          {{ page }}
-        </a>
-      </nav>
-    </header>
-    <!-- <ShopHome/> -->
-    <component :is="changePage"></component>
-    <footer class="footer">
-      <div class="footer__logo__block">
-        <div class="footer__logo">
-          <img src="../assets/img/Logo.svg" alt="Logo" />
-          <h3>Interno</h3>
+  <div>
+    <div class="starter">
+      <img class="starter__img" src="../assets/img/Promo.svg" alt="Logo" />
+      <div class="starter__content">
+        <div class="starter__content__header">Let Your Home Be Unique</div>
+        <div class="starter__content__text">
+          There are many variations of the passages of lorem Ipsum
+          fromavailable, majority.
         </div>
-        <p class="footer__logo__text">
-          It is a long established fact that a reader will be distracted
-          lookings.
+        <button class="starter__content__button">Get Started</button>
+      </div>
+    </div>
+    <div class="projects">
+      <div class="projects__header">
+        <p class="projects__header__header">Follow Our Projects</p>
+        <p class="projects__text">
+          It is a long established fact that a reader will be distracted by the
+          of readable content of page lookings at its layouts points.
         </p>
-        <div class="footer__logo__twitter">
-          <a href="">
-            <img src="../assets/img/twitter.svg" alt="Logo" />
-          </a>
-          <a href="">
-            <img src="../assets/img/in.svg" alt="Logo" />
-          </a>
+      </div>
+      <div class="projects__view">
+        <div class="project__item">
+          <img
+            class="project__item__img img__corner__right__up"
+            src="../assets/img/Project1.svg"
+            alt=""
+          />
+          <div class="project__item__content">
+            <div class="small__text">
+              <p class="project__item__text">Modern Kitchen</p>
+              <div class="breadcrumb">
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="index.html">Decor </a>
+                </div>
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="#">Artchitecture</a>
+                </div>
+                <!--закрытие   breadcrumb-->
+              </div>
+            </div>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="project__item">
+          <img
+            class="project__item__img img__corner__left__up"
+            src="../assets/img/Project2.svg"
+            alt=""
+          />
+          <div class="project__item__content">
+            <div class="small__text">
+              <p class="project__item__text">Modern Kitchan</p>
+              <div class="breadcrumb">
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="index.html">Decor </a>
+                </div>
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="#">Artchitecture</a>
+                </div>
+                <!--закрытие   breadcrumb-->
+              </div>
+            </div>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="project__item">
+          <img
+            class="project__item__img img__corner__right__down"
+            src="../assets/img/Project3.svg"
+            alt=""
+          />
+          <div class="project__item__content">
+            <div class="small__text">
+              <p class="project__item__text">Modern Kitchan</p>
+              <div class="breadcrumb">
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="index.html">Decor </a>
+                </div>
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="#">Artchitecture</a>
+                </div>
+                <!--закрытие   breadcrumb-->
+              </div>
+            </div>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="project__item">
+          <img
+            class="project__item__img img__corner__left__down"
+            src="../assets/img/Project4.svg"
+            alt=""
+          />
+          <div class="project__item__content">
+            <div class="small__text">
+              <p class="project__item__text">Modern Kitchan</p>
+              <div class="breadcrumb">
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="index.html">Decor </a>
+                </div>
+                <div class="breadcrumb__box-link">
+                  <a class="breadcrumb__link" href="#">Artchitecture</a>
+                </div>
+                <!--закрытие   breadcrumb-->
+              </div>
+            </div>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer__pages">
-        <h3>Pages</h3>
-        <nav class="footer__pages__menu">
-          <a @click="currentPage = page" v-for="page in pages" :key="page.id">
-            {{ page }}
-          </a>
-        </nav>
+      <!--  -->
+      <div class="results">
+        <div class="results__item">
+          12
+          <p class="results__item__text">Years Of Experiance</p>
+        </div>
+        <div class="results__item">
+          85
+          <p class="results__item__text">Success Projects</p>
+        </div>
+        <div class="results__item">
+          15
+          <p class="results__item__text">Active Projects</p>
+        </div>
+        <div class="results__item">
+          95
+          <p class="results__item__text">Happy CUstomers</p>
+        </div>
       </div>
-      <div class="footer__contact">
-        <h3>Contacts</h3>
-        <p class="address">55 East Birchwood Ave. Brooklyn, New York 11201</p>
-        <p class="email">contact@interno.com</p>
-        <p class="tel">(123) 456 - 7890</p>
+      <!--  -->
+      <div class="projects__header">
+        <p class="projects__header__header">Articles & News</p>
+        <p class="projects__text">
+          It is a long established fact that a reader will be distracted by the
+          of readable content of a page when lookings at its layouts the points
+          of using.
+        </p>
       </div>
-    </footer>
+      <!-- News -->
+      <div class="news__view">
+        <div class="news__item">
+          <img class="news__item__img" src="../assets/img/News1.svg" alt="" />
+          <p class="news__item__text">
+            Let’s Get Solution For Building Construction Work
+          </p>
+          <div class="news__item__content">
+            <p class="small__text">26 December,2022</p>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <a href="" class="news__section">Kitchen Design</a>
+        </div>
+        <!--  -->
+        <div class="news__item">
+          <img class="news__item__img" src="../assets/img/News2.svg" alt="" />
+          <p class="news__item__text">
+            Low Cost Latest Invented Interior Designing Ideas
+          </p>
+          <div class="news__item__content">
+            <p class="small__text">22 December,2022</p>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <a href="" class="news__section">Living Design</a>
+        </div>
+        <!--  -->
+        <div class="news__item">
+          <img class="news__item__img" src="../assets/img/News3.svg" alt="" />
+          <p class="news__item__text">
+            Best For Any Office & Business Interior Solution
+          </p>
+          <div class="news__item__content">
+            <p class="small__text">25 December,2022</p>
+            <div class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <a href="" class="news__section">Interior Design</a>
+        </div>
+      </div>
+      <!--  -->
+    </div>
   </div>
 </template>
 
 <script>
-import ShopHome from '../components/ShopHome.vue';
-import ShopBlog from '../components/ShopBlog.vue';
-import ShopBlogDetails from '../components/ShopBlogDetails.vue';
 export default {
-  name: 'ShopMain',
-
-  components: {
-    ShopHome,
-    ShopBlog,
-    ShopBlogDetails
-  },
-  data() {
-    return {
-      pages: ['Home', 'Project', 'Blog'],
-      currentPage: 'Home',
-    };
-  },
-  computed: {
-    changePage() {
-      return `Shop${this.currentPage}`;
-    },
-  },
-
-  methods: {},
+  name: 'ShopHome',
 };
 </script>
 
@@ -83,10 +306,21 @@ export default {
   margin: 0;
   padding: 0;
 }
+/* html {
+  min-height: 50%;
+  background: linear-gradient(rgb(199, 199, 218) 0 0) calc(1 * 100% / 6),
+    linear-gradient(rgb(199, 199, 218) 0 0) calc(2 * 100% / 6),
+    linear-gradient(rgb(199, 199, 218) 0 0) calc(3 * 100% / 6),
+    linear-gradient(rgb(199, 199, 218) 0 0) calc(4 * 100% / 6),
+    linear-gradient(rgb(199, 199, 218) 0 0) calc(5 * 100% / 6);
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+} */
 body {
   width: 1600px;
   font-family: 'Lato', sans-serif;
 }
+
 .main__block {
   display: flex;
   flex-direction: column;
@@ -108,7 +342,6 @@ img {
 a {
   text-decoration: none;
   color: rgba(77, 80, 83, 1);
-  cursor: pointer;
 }
 
 .center {

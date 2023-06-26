@@ -1,135 +1,242 @@
 <template>
-  <div class="blog__details">
-    <div class="main__block center transparent">
-      <header class="header">
-        <div class="header__left">
-          <img src="../assets/img/Logo.svg" alt="Logo" />
-          <h3>Interno</h3>
+  <div>
+    <div class="starter">
+      <img
+        class="starter__blog__img"
+        src="../assets/img/Blog_promo.svg"
+        alt="Logo"
+      />
+    </div>
+    <div class="projects__header shift__up">
+      <p class="projects__header__header">Articles & News</p>
+      <div class="breadcrumb">
+        <div class="breadcrumb__box-link">
+          <a class="breadcrumb__link" href="index.html">Home</a>
         </div>
-        <nav class="header__right">
-          <a href="index.html">Home</a>
-          <a href="Project">Project</a>
-          <a href="blog.html">Blog</a>
-        </nav>
-      </header>
-      <div class="starter">
-        <img
-          class="starter__blog__img"
-          src="../assets/img/Blog_details_promo.svg"
-          alt="Logo"
-        />
-      </div>
-      <!--  -->
-      <div class="blog__details">
-        <div class="blog__details__main">
-          <!-- components -->
-          <component :is="changeTab"></component>
-        </div>
-        <div class="tags">
-          <p class="tags__heading">Tags</p>
-          <button
-            class="tag"
-            @click="currentTab = btn"
-            v-for="btn in nameBtns"
-            :key="btn.id"
-          >
-            {{ btn }}
-          </button>
+        <div class="breadcrumb__box-link">
+          <a class="breadcrumb__link" href="#">Blog</a>
         </div>
       </div>
+    </div>
+    <!--  -->
+    <div class="post__header">Latest Post</div>
+    <div class="post">
+      <img
+        src="../assets/img/Blog_post.svg"
+        alt="img/Blog_post.svg"
+        class="post__img"
+      />
+      <div class="post__content">
+        <p class="post__content__header">
+          Low Cost Latest Invented Interior Designing Ideas
+        </p>
+        <p class="post__content__first">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias
+          corporis debitis voluptas doloribus adipisci neque nobis saepe velit
+          eligendi pariatur, mollitia et rerum animi repudiandae nostrum.
+          Eligendi, earum reprehenderit.
+        </p>
+        <!--  -->
+        <div class="blog__news__content">
+          <p class="small__text">22 December,2022</p>
+          <div class="project__item__btn">
+            <svg
+              width="10"
+              height="20"
+              viewBox="0 0 10 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.00012 19L9.00012 10L1.00012 1"
+                stroke="#292F36"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
       <!--  -->
-
-      <footer class="footer">
-        <div class="footer__logo__block">
-          <div class="footer__logo">
-            <img src="../assets/img/Logo.svg" alt="Logo" />
-            <h3>Interno</h3>
-          </div>
-          <p class="footer__logo__text">
-            It is a long established fact that a reader will be distracted
-            lookings.
-          </p>
-          <div class="footer__logo__twitter">
-            <a href="">
-              <img src="../assets/img/twitter.svg" alt="Logo" />
+    </div>
+    <div class="projects">
+      <!-- News -->
+      <div class="post__header">Articles & News</div>
+      <div class="news__view">
+        <div v-for="item in items" :key="item.id" class="news__item">
+          <img class="news__item__img" :src="item.img" alt="" />
+          <p class="news__item__text">{{ item.item_text }}</p>
+          <div class="news__item__content">
+            <p class="small__text">{{ item.item_datedate }}</p>
+            <a @click="chngPage" class="project__item__btn">
+              <svg
+                width="10"
+                height="20"
+                viewBox="0 0 10 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.00012 19L9.00012 10L1.00012 1"
+                  stroke="#292F36"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </a>
-            <a href="">
-              <img src="../assets/img/in.svg" alt="Logo" />
-            </a>
           </div>
+          <a :href="item.section_href" class="news__section">{{
+            item.section_name
+          }}</a>
         </div>
-        <div class="footer__pages">
-          <h3>Pages</h3>
-          <nav class="footer__pages__menu">
-            <a href="index.html">Home</a>
-            <a href="Project">Project</a>
-            <a href="blog.html">Blog</a>
-          </nav>
-        </div>
-        <div class="footer__contact">
-          <h3>Contacts</h3>
-          <p class="address">55 East Birchwood Ave. Brooklyn, New York 11201</p>
-          <p class="email">contact@interno.com</p>
-          <p class="tel">(123) 456 - 7890</p>
-        </div>
-      </footer>
+      </div>
+      <!--  -->
+      <div class="news__buttons">
+        <button
+          v-for="item in buttons"
+          :key="item.id"
+          @click="showPage(item.id)"
+          class="project__item__btn"
+        >
+          {{ item.number }}
+        </button>
+      </div>
+      <!--  -->
     </div>
   </div>
 </template>
-
 <script>
-import ShopKitchen from '../components/ShopKitchen.vue';
-import ShopBedroom from '../components/ShopBedroom.vue';
-import ShopBuilding from '../components/ShopBuilding.vue';
-import ShopArchitecture from '../components/ShopArchitecture.vue';
-import ShopKitchen_planning from '../components/ShopKitchenPlanning.vue';
-
 export default {
-  name: 'BlogDetails',
-  components: {
-    ShopKitchen,
-    ShopBedroom,
-    ShopBuilding,
-    ShopArchitecture,
-    ShopKitchen_planning
+  name: 'ShopBlog',
 
-  },
   data() {
     return {
-      nameBtns: [
-        'Kitchen',
-        'Bedroom',
-        'Building',
-        'Architecture',
-        'Kitchen planning',
+      news_items: [
+        {
+          id: 0,
+          img: require('../assets/img/News1.svg'),
+          section_name: 'Kitchen Design',
+          section_href: '',
+          item_text: 'Let’s Get Solution For Building Construction Work',
+          item_date: '26 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 1,
+          img: require('../assets/img/News2.svg'),
+          section_name: 'Living Design',
+          section_href: '',
+          item_text: 'Low Cost Latest Invented Interior Designing Ideas',
+          item_date: '22 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 2,
+          img: require('../assets/img/News3.svg'),
+          section_name: 'Interior Design',
+          section_href: '',
+          item_text: 'Best For Any Office & Business Interior Solution',
+          item_date: '25 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 3,
+          img: require('../assets/img/News4.svg'),
+          section_name: 'Kitchen Design',
+          section_href: '',
+          item_text: 'Let’s Get Solution For Building Construction Work',
+          item_date: '26 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 4,
+          img: require('../assets/img/News5.svg'),
+          section_name: 'Living Design',
+          section_href: '',
+          item_text: 'Low Cost Latest Invented Interior Designing Ideas',
+          item_date: '22 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 5,
+          img: require('../assets/img/News6.svg'),
+          section_name: 'Interior Design',
+          section_href: '',
+          item_text: 'Best For Any Office & Business Interior Solution',
+          item_date: '25 December,2022',
+          item_href: 'blog_details.html',
+        },
       ],
-      currentTab: 'Kitchen',
+      buttons: [
+        {
+          id: 0,
+          number: '01',
+        },
+        {
+          id: 1,
+          number: '02',
+        },
+      ],
+      items: [
+        {
+          id: 0,
+          img: require('../assets/img/News1.svg'),
+          section_name: 'Kitchen Design',
+          section_href: '',
+          item_text: 'Let’s Get Solution For Building Construction Work',
+          item_date: '26 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 1,
+          img: require('../assets/img/News2.svg'),
+          section_name: 'Living Design',
+          section_href: '',
+          item_text: 'Low Cost Latest Invented Interior Designing Ideas',
+          item_date: '22 December,2022',
+          item_href: 'blog_details.html',
+        },
+        {
+          id: 2,
+          img: require('../assets/img/News3.svg'),
+          section_name: 'Interior Design',
+          section_href: '',
+          item_text: 'Best For Any Office & Business Interior Solution',
+          item_date: '25 December,2022',
+          item_href: 'blog_details.html',
+        },
+      ],
     };
   },
-  computed: {
-    changeTab() {
-      return `Shop${this.currentTab.replace(' ', '_')}`;
+  methods: {
+    showPage(id) {
+      console.log(this.news_items);
+      const json_data = this.news_items;
+      for (let i = 0; i < 3; i++) {
+        this.items[i].img = json_data[id * 3 + i].img;
+        this.items[i].section_name = json_data[id * 3 + i].section_name;
+        this.items[i].section_href = json_data[id * 3 + i].section_href;
+        this.items[i].item_text = json_data[id * 3 + i].item_text;
+        this.items[i].item_date = json_data[id * 3 + i].item_date;
+        this.items[i].item_href = json_data[id * 3 + i].item_href;
+      }
+    },
+    chngPage() {
+      console.log('Переход!');
+      this.$parent.currentPage = 'BlogDetails';
     },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="css" scoped>
 * {
   margin: 0;
   padding: 0;
 }
-/* html {
-  min-height: 50%;
-  background: linear-gradient(rgb(199, 199, 218) 0 0) calc(1 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(2 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(3 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(4 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(5 * 100% / 6);
-  background-size: 1px 100%;
-  background-repeat: no-repeat;
-} */
+
 body {
   width: 1600px;
   font-family: 'Lato', sans-serif;
