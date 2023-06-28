@@ -1,16 +1,10 @@
 <template>
   <div class="main__block center">
-    <header class="header">
-      <div class="header__left">
-        <img src="../assets/img/Logo.svg" alt="Logo" />
-        <h3>Interno</h3>
-      </div>
-      <nav class="header__right">
-        <a @click="currentPage = page" v-for="page in pages" :key="page.id">
-          {{ page }}
-        </a>
-      </nav>
-    </header>
+    <ShopHeader
+      :curPage="currentPage"
+      :shopPages="pages"
+      @currentPageChange="currentPageChange"
+    />
     <!-- <ShopHome/> -->
     <component :is="changePage"></component>
     <footer class="footer">
@@ -54,13 +48,15 @@
 import ShopHome from '../components/ShopHome.vue';
 import ShopBlog from '../components/ShopBlog.vue';
 import ShopBlogDetails from '../components/ShopBlogDetails.vue';
+import ShopHeader from '../components/ShopHeader.vue';
 export default {
   name: 'ShopMain',
 
   components: {
     ShopHome,
     ShopBlog,
-    ShopBlogDetails
+    ShopBlogDetails,
+    ShopHeader,
   },
   data() {
     return {
@@ -74,7 +70,11 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    currentPageChange(data) {
+      this.currentPage = data;
+    },
+  },
 };
 </script>
 
