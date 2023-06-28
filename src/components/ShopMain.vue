@@ -7,40 +7,11 @@
     />
     <!-- <ShopHome/> -->
     <component :is="changePage"></component>
-    <footer class="footer">
-      <div class="footer__logo__block">
-        <div class="footer__logo">
-          <img src="../assets/img/Logo.svg" alt="Logo" />
-          <h3>Interno</h3>
-        </div>
-        <p class="footer__logo__text">
-          It is a long established fact that a reader will be distracted
-          lookings.
-        </p>
-        <div class="footer__logo__twitter">
-          <a href="">
-            <img src="../assets/img/twitter.svg" alt="Logo" />
-          </a>
-          <a href="">
-            <img src="../assets/img/in.svg" alt="Logo" />
-          </a>
-        </div>
-      </div>
-      <div class="footer__pages">
-        <h3>Pages</h3>
-        <nav class="footer__pages__menu">
-          <a @click="currentPage = page" v-for="page in pages" :key="page.id">
-            {{ page }}
-          </a>
-        </nav>
-      </div>
-      <div class="footer__contact">
-        <h3>Contacts</h3>
-        <p class="address">55 East Birchwood Ave. Brooklyn, New York 11201</p>
-        <p class="email">contact@interno.com</p>
-        <p class="tel">(123) 456 - 7890</p>
-      </div>
-    </footer>
+    <ShopFooter
+      :curPage="currentPage"
+      :shopPages="pages"
+      @currentPageChange="currentPageChange"
+    />
   </div>
 </template>
 
@@ -49,6 +20,7 @@ import ShopHome from '../components/ShopHome.vue';
 import ShopBlog from '../components/ShopBlog.vue';
 import ShopBlogDetails from '../components/ShopBlogDetails.vue';
 import ShopHeader from '../components/ShopHeader.vue';
+import ShopFooter from '../components/ShopFooter.vue';
 export default {
   name: 'ShopMain',
 
@@ -57,6 +29,7 @@ export default {
     ShopBlog,
     ShopBlogDetails,
     ShopHeader,
+    ShopFooter
   },
   data() {
     return {
