@@ -212,8 +212,7 @@ export default {
   },
   methods: {
     showPage(id) {
-      console.log(this.news_items);
-      const json_data = this.news_items;
+        const json_data = this.news_items;
       for (let i = 0; i < 3; i++) {
         this.items[i].img = json_data[id * 3 + i].img;
         this.items[i].section_name = json_data[id * 3 + i].section_name;
@@ -224,7 +223,6 @@ export default {
       }
     },
     chngPage() {
-      console.log('Переход!');
       this.$parent.currentPage = 'BlogDetails';
     },
   },
@@ -271,6 +269,7 @@ a {
 }
 .shift__up {
   padding: 20px;
+  position: absolute;
   margin-top: -175px !important;
   margin-left: 350px !important;
   z-index: 2;

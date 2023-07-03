@@ -18,6 +18,7 @@
 <script>
 import ShopHome from '../components/ShopHome.vue';
 import ShopBlog from '../components/ShopBlog.vue';
+import ShopProject from '../components/ShopProject.vue';
 import ShopBlogDetails from '../components/ShopBlogDetails.vue';
 import ShopHeader from '../components/ShopHeader.vue';
 import ShopFooter from '../components/ShopFooter.vue';
@@ -29,7 +30,8 @@ export default {
     ShopBlog,
     ShopBlogDetails,
     ShopHeader,
-    ShopFooter
+    ShopFooter,
+    ShopProject,
   },
   data() {
     return {
@@ -63,9 +65,7 @@ body {
 .main__block {
   display: flex;
   flex-direction: column;
-  /* width: 1600px;
-  font-family: 'Lato', sans-serif; */
-  min-height: 50%;
+   min-height: 50%;
   background: linear-gradient(rgb(199, 199, 218) 0 0) calc(1 * 100% / 6),
     linear-gradient(rgb(199, 199, 218) 0 0) calc(2 * 100% / 6),
     linear-gradient(rgb(199, 199, 218) 0 0) calc(3 * 100% / 6),
