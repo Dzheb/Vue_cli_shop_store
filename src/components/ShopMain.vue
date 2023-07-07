@@ -22,6 +22,10 @@ import ShopProject from '../components/ShopProject.vue';
 import ShopBlogDetails from '../components/ShopBlogDetails.vue';
 import ShopHeader from '../components/ShopHeader.vue';
 import ShopFooter from '../components/ShopFooter.vue';
+
+// import {ShopHome, ShopBlog, ShopProject, ShopBlogDetails, ShopHeader,ShopFooter } from '../components';
+
+
 export default {
   name: 'ShopMain',
 

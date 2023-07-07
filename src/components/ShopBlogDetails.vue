@@ -4,7 +4,7 @@
       <div class="starter">
         <img
           class="starter__blog__img"
-          src="../assets/img/Blog_details_promo.svg"
+          src="@/assets/img/Blog_details_promo.svg"
           alt="Logo"
         />
       </div>
@@ -84,13 +84,6 @@ body {
   /* width: 1600px;
   font-family: 'Lato', sans-serif; */
   min-height: 50%;
-  background: linear-gradient(rgb(199, 199, 218) 0 0) calc(1 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(2 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(3 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(4 * 100% / 6),
-    linear-gradient(rgb(199, 199, 218) 0 0) calc(5 * 100% / 6);
-  background-size: 1px 100%;
-  background-repeat: no-repeat;
 }
 
 img {

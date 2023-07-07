@@ -7,6 +7,7 @@
 <script>
 import ShopMain from './components/ShopMain.vue';
 
+
 export default {
   name: 'App',
   components: {
