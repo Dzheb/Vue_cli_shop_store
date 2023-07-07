@@ -179,7 +179,7 @@ export default {
       tags[index].classList.add('selected');
     },
     chngPage() {
-      this.$parent.currentPage = 'BlogDetails';
+      this.$parent.currentPage = 'ProjectDetails';
     },
     starsPrint(stars) {
       let element = '';

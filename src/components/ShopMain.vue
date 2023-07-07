@@ -20,6 +20,7 @@ import ShopHome from '../components/ShopHome.vue';
 import ShopBlog from '../components/ShopBlog.vue';
 import ShopProject from '../components/ShopProject.vue';
 import ShopBlogDetails from '../components/ShopBlogDetails.vue';
+import ShopProjectDetails from '../components/ShopProjectDetails.vue';
 import ShopHeader from '../components/ShopHeader.vue';
 import ShopFooter from '../components/ShopFooter.vue';
 
@@ -36,6 +37,7 @@ export default {
     ShopHeader,
     ShopFooter,
     ShopProject,
+    ShopProjectDetails
   },
   data() {
     return {
