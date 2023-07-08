@@ -18,7 +18,6 @@
         </div>
       </div>
     </div>
-    <!--  -->
     <div class="project__tags">
       <button
         class="project__tag"
@@ -75,8 +74,6 @@
         }}</a>
       </div>
     </div>
-
-    <!--  -->
     <div class="project__buttons">
       <button
         v-for="item in buttons"
@@ -87,13 +84,11 @@
         {{ item.number }}
       </button>
     </div>
-    <!--  -->
   </div>
 </template>
 <script>
 export default {
   name: 'ShopProject',
-
   data() {
     return {
       nameBtns: ['Kitchen', 'Bedroom', 'Bath room', 'Living area'],
@@ -169,6 +164,7 @@ export default {
       star: '<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.4153 5.8541C14.014 4.01148 16.6208 4.01148 17.2195 5.8541L18.2361 8.98278C18.5038 9.80682 19.2717 10.3647 20.1382 10.3647H23.4279C25.3653 10.3647 26.1709 12.844 24.6034 13.9828L21.942 15.9164C21.241 16.4257 20.9477 17.3284 21.2155 18.1525L22.232 21.2812C22.8308 23.1238 20.7218 24.656 19.1544 23.5172L16.493 21.5836C15.792 21.0743 14.8428 21.0743 14.1418 21.5836L11.4804 23.5172C9.91297 24.656 7.80401 23.1238 8.40272 21.2812L9.41929 18.1525C9.68703 17.3284 9.39372 16.4257 8.69274 15.9164L6.03133 13.9828C4.46391 12.844 5.26946 10.3647 7.2069 10.3647H10.4966C11.363 10.3647 12.131 9.80682 12.3987 8.98278L13.4153 5.8541Z" fill="#FFA928"/> </svg>',
     };
   },
+
   methods: {
     chngTab(btn, index) {
       this.currentTab = btn;
@@ -204,7 +200,6 @@ export default {
   },
 };
 </script>
-
 <style lang="css" scoped>
 * {
   margin: 0;
@@ -409,9 +404,7 @@ a {
   margin: 20px 0;
   padding: 16px;
 }
-/* .project__item:hover {
-  background-color: rgba(231, 231, 231, 1);
-} */
+
 .project__item__content {
   margin: 16px 0;
   display: flex;

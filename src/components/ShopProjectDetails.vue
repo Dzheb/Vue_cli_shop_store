@@ -10,15 +10,17 @@
     <div class="project__details__main">
       <div id="carousel_block" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button  v-for="item in btns" :key="item.id"
+          <button
+            v-for="item in btns"
+            :key="item.id"
             type="button"
             data-bs-target="#carousel_block"
             :data-bs-slide-to="item.num"
             :class="item.class"
-          ></button> 
+          ></button>
         </div>
         <div class="carousel-inner">
-          <div v-for="it in items" :key="it.id" :class="it.classActive">
+          <div v-for="it in getProjects" :key="it.id" :class="it.classActive">
             <div class="text__content">
               <div class="text__content__text">
                 <p class="text__content__header">{{ it.header }}</p>
@@ -50,93 +52,11 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'ShopProjectDetails',
   data() {
     return {
-      items: [
-        {
-          id: '0',
-          header: 'Minimal Look kitchen',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_kitchen_1.svg'),
-          alt: '@/assets/img/Project_kitchen_1.svg',
-          classActive: 'carousel-item active',
-        },
-        {
-          id: '1',
-          header: 'Modern Look kitchen',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_kitchen_2.svg'),
-          alt: '@/assets/img/Project_kitchen_2.svg',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '2',
-          header: 'Minimal Look Bedrooms',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_bedroom_1.svg'),
-          alt: '@/assets/img/Project_bedroom_1.svg',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '3',
-          header: 'Minimal Look bedroom',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_bedroom_2.svg'),
-          alt: '@/assets/img/Project_bedroom_2.svg',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '4',
-          header: 'Modern Look kitchen',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_kitchen_2.svg'),
-          alt: '@/assets/img/Project_kitchen_2.svg',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '5',
-          header: 'Minimal Look Bathroom',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_bathroom_1.svg'),
-          alt: '@/assets/img/Project_bathroom_1.svg',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '6',
-          header: 'Minimal Look Bathroom',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_bathroom_2.svg'),
-          alt: '@/assets/img/Project_bathroom_2.svg',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '7',
-          header: 'Modern Look Livingroom',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_livingroom_1.svg'),
-          alt: '@/assets/img/Project_livingroom_1',
-          classActive: 'carousel-item',
-        },
-        {
-          id: '8',
-          header: 'Minimal Look Livingroom',
-          header_text:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel lectus bibendum commodo. In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc, mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.',
-          src: require('@/assets/img/Project_livingroom_2.svg'),
-          alt: '@/assets/img/Project_livingroom_2.svg',
-          classActive: 'carousel-item',
-        },
-      ],
       btns: [
         { num: '0', class: 'active' },
         { num: '1', class: '' },
@@ -150,7 +70,9 @@ export default {
       ],
     };
   },
- 
+  computed: {
+    ...mapGetters(['getProjects']),
+  },
 };
 </script>
 <style scoped>

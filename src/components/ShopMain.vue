@@ -5,7 +5,6 @@
       :shopPages="pages"
       @currentPageChange="currentPageChange"
     />
-    <!-- <ShopHome/> -->
     <component :is="changePage"></component>
     <ShopFooter
       :curPage="currentPage"
@@ -26,7 +25,6 @@ import ShopFooter from '../components/ShopFooter.vue';
 
 // import {ShopHome, ShopBlog, ShopProject, ShopBlogDetails, ShopHeader,ShopFooter } from '../components';
 
-
 export default {
   name: 'ShopMain',
 
@@ -37,7 +35,7 @@ export default {
     ShopHeader,
     ShopFooter,
     ShopProject,
-    ShopProjectDetails
+    ShopProjectDetails,
   },
   data() {
     return {
@@ -71,7 +69,7 @@ body {
 .main__block {
   display: flex;
   flex-direction: column;
-   min-height: 50%;
+  min-height: 50%;
   background: linear-gradient(rgb(199, 199, 218) 0 0) calc(1 * 100% / 6),
     linear-gradient(rgb(199, 199, 218) 0 0) calc(2 * 100% / 6),
     linear-gradient(rgb(199, 199, 218) 0 0) calc(3 * 100% / 6),
